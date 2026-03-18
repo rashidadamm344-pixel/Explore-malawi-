@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Malawi | The Warm Heart of Africa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --blue: #0077b6;
+            --green: #2a9d8f;
+            --orange: #e76f51;
+            --light-bg: #f8f9fa;
+            --dark-text: #2b2d42;
+            --white: #ffffff;
+        }
+
+        /* --- BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--orange);
+        }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-weight: 600;
+        }
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+        .btn-book {
+            background-color: var(--green);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+        .btn-book:hover {
+            background-color: #21867a;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+        .hero h1 {
+            font-size: 4rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .search-bar {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 30px;
+            overflow: hidden;
+            padding: 5px;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        .search-bar button {
+            background-color: var(--orange);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--blue);
+        }
+
+        /* --- DESTINATIONS CARDS --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 25px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--orange);
+        }
+        .tags span {
+            display: inline-block;
+            background: var(--light-bg);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin: 5px 5px 15px 0;
+            color: var(--blue);
+            font-weight: bold;
+        }
+        .btn-card {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--blue);
+            color: var(--white);
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* --- CONTACT & FOOTER --- */
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .search-bar { flex-direction: column; border-radius: 15px; }
+            .search-bar button { border-radius: 10px; margin-top: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Explore Malawi 🇲🇼</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#guide">Travel Guide</a>
+                <a href="#contact">Contact</a>
+                <a href="#" class="btn-book">Book Tours</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="container">
+            <h1>Discover the Warm Heart of Africa</h1>
+            <p>Pristine lakes, thrilling safaris, and legendary hospitality.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Where do you want to go? (e.g., Lake Malawi, Safaris)">
+                <button>Search</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="destinations" class="container">
+        <h2 class="section-title">Top Destinations</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1579549324009-db9756b19a16?auto=format&fit=crop&w=600&q=80" alt="Lake Malawi">
+                <div class="card-content">
+                    <h3 class="card-title">Lake Malawi</h3>
+                    <div class="tags">
+                        <span>Snorkeling</span> <span>Beaches</span> <span>May-Oct</span>
+                    </div>
+                    <p>The "Lake of Stars" is a massive, crystal-clear rift valley lake featuring over 1,000 species of colorful cichlid fish and golden shores.</p>
+                    <a href="#" class="btn-card">Explore the Lake</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1547471080-7fc2caa6f17f?auto=format&fit=crop&w=600&q=80" alt="Elephants in Liwonde">
+                <div class="card-content">
+                    <h3 class="card-title">Liwonde National Park</h3>
+                    <div class="tags">
+                        <span>Big Five Safari</span> <span>Boat Tours</span> <span>Wildlife</span>
+                    </div>
+                    <p>Malawi's premier wildlife destination. Glide down the Shire River past hundreds of hippos, elephants, and crocodiles.</p>
+                    <a href="#" class="btn-card">Book a Safari</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Mount Mulanje">
+                <div class="card-content">
+                    <h3 class="card-title">Mount Mulanje</h3>
+                    <div class="tags">
+                        <span>Hiking</span> <span>Camping</span> <span>Waterfalls</span>
+                    </div>
+                    <p>The "Island in the Sky." A spectacular granite massif rising 3,000m above vivid green tea estates.</p>
+                    <a href="#" class="btn-card">View Trails</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=600&q=80" alt="Blantyre City">
+                <div class="card-content">
+                    <h3 class="card-title">Blantyre City</h3>
+                    <div class="tags">
+                        <span>Culture</span> <span>Markets</span> <span>Dining</span>
+                    </div>
+                    <p>The commercial hub of Malawi. Explore vibrant street markets, historical buildings, and excellent local dining.</p>
+                    <a href="#" class="btn-card">City Guide</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title">Plan Your Adventure</h2>
+            <div class="contact-form">
+                <h3 style="text-align: center; margin-bottom: 20px;">Contact Our Local Experts</h3>
+                <p style="text-align: center; margin-bottom: 30px;">
+                    📞 +265 981 555 737 | 📱 WhatsApp: +265 890 423 353
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Tell us about your dream trip..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>Explore Malawi</h2>
+            <p>The Warm Heart of Africa</p>
+            <br>
+            <p>&copy; 2026 Explore Malawi Tourism. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
